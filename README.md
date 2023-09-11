@@ -4,3 +4,6 @@
 - 資料類型
 - 數學計算
 11209台北市職能發展學院_Python應用實戰班
+
+## 2023_09_11_作業
+[作業](https://github.com/George1120901/__1120907HomeWork__/tree/main)
