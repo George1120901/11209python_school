@@ -30,3 +30,6 @@
 
 ## 2023_09_28_遊戲
 [作業-擲骰子比賽](./lesson12_3作業.ipynb)
+
+## 2023_10_03_遊戲
+[作業-StaticWeb](https://staticweb-iwzp.onrender.com)
