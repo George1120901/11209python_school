@@ -33,3 +33,6 @@
 
 ## 2023_10_03_遊戲
 [作業-StaticWeb](https://staticweb-iwzp.onrender.com)
+
+## 2023_10_05_作業
+[作業-檔案存取](./lesson14作業.ipynb)
