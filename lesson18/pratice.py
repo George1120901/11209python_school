@@ -16,13 +16,13 @@ class MyFrame(tk.Frame):
     def __init__(self,master,**kwargs):
         super().__init__(master,**kwargs)
         self.configure(background='#9E7A7A')
-        self.img = Image.open("pets.png")
+        self.img = Image.open("requests.jpg")
         self.pets = ImageTk.PhotoImage(self.img)
         canvas = tk.Canvas(self,
-                           width=48,
-                           height=48
+                           width=150,
+                           height=180
                            )
-        canvas.create_image(24,24,image=self.pets,anchor=tk.CENTER)
+        canvas.create_image(75,50,image=self.pets,anchor=tk.CENTER)
         canvas.pack()
         self.pack(expand=1, fill='both')
 
