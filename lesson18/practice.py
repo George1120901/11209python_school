@@ -15,6 +15,7 @@ class Window(tk.Tk):
 class MyFrame(tk.Frame):
     def __init__(self,master,**kwargs):
         super().__init__(master,**kwargs)
+        
         self.configure(background='#9E7A7A')
         self.img = Image.open("requests.jpg")
         self.pets = ImageTk.PhotoImage(self.img)
