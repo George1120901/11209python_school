@@ -39,3 +39,6 @@
 
 ## 2023_10_12_作業
 [作業-視窗(台積電股價)](./lesson18/lesson18作業.ipynb)
+
+## 2023_10_18_作業
+[作業-DB Browser(台積電股價)](./lesson19/lesson19_2作業.ipynb)
