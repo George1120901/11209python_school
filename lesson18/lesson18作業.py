@@ -13,7 +13,7 @@ class Window(tk.Tk):
         #self.geometry("300x250")
         #self.configure(background='#E79460')
 
-# 建List視窗
+# 建List視窗 & Data
 class MyFrame(tk.LabelFrame):
     def __init__(self,master,title,**kwargs):
         super().__init__(master,text=title,**kwargs)
