@@ -1,8 +1,6 @@
 import requests
 import sqlite3
 
-__all__ = ['updata_sqlite_data']
-
 def __download_youbike_data()->list[dict]:
     '''
     下載台北市youbike資料2.0
@@ -27,30 +25,17 @@ def __create_table(conn:sqlite3.Connection):
             "總車輛數"	INTEGER,
             "可借"	INTEGER,
             "可還"	INTEGER,
-            PRIMARY KEY("id" AUTOINCREMENT),
-            UNIQUE(站點名稱,更新時間) ON CONFLICT REPLACE 
+            PRIMARY KEY("id" AUTOINCREMENT)
         );
         '''
     )
     conn.commit()
 
-def __insert_data(conn:sqlite3.Connection,values:list[any])->None:
-    cursor = conn.cursor()
-    sql = '''
-    REPLACE INTO 台北市youbike(站點名稱,行政區,更新時間,地址,總車輛數,可借,可還)
-        VALUES(?,?,?,?,?,?,?)
-    '''
-    cursor.execute(sql,values)
-    conn.commit()
-
-def updata_sqlite_data()->None:
+def updata_sqlite_data():
     '''
     下載,並更新資料庫
     '''
     data = __download_youbike_data()
     conn = sqlite3.connect("youbike.db")
     __create_table(conn)
-    for item in data:
-        __insert_data(conn,[item['sna'],item['sarea'],item['mday'],item['ar'],item['tot'],item['sbi'],item['bemp']])
-    conn.close()
-
+    
