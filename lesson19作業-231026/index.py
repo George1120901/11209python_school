@@ -29,7 +29,7 @@ def main():
         t.start()  
 
     window = Window()
-    window.title('空氣品質AQI')
+    window.title('空氣品質')
     window.geometry('600x300')
     window.resizable(width=False,height=False)
     update_data()

@@ -2,5 +2,4 @@
 venv
 __pycache__
 password.py
-auth_id.py
 key.py
