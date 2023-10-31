@@ -7,7 +7,7 @@ import key
 
 # download data----------------------------------------------------------------
 
-def __download_aqi_data() -> list:
+def download_aqi_data() -> list:
     aqi_url = f'https://data.moenv.gov.tw/api/v2/aqx_p_07?formate=json&api_key={key.key}'
     response = requests.get(aqi_url)
     response.raise_for_status()
@@ -17,7 +17,7 @@ def __download_aqi_data() -> list:
 
 
 # create sql able---------------------------------------
-def __create_table(conn: sqlite3.Connection):
+def create_table(conn: sqlite3.Connection):
     
     sql= '''
 		CREATE TABLE IF NOT EXISTS 空氣品質監測站(
@@ -42,7 +42,7 @@ def __create_table(conn: sqlite3.Connection):
     conn.commit()
 
 
-def __insert_data(conn: sqlite3.Connection, values: list):
+def insert_data(conn: sqlite3.Connection, values: list):
     cursor = conn.cursor()
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M')
     sql = '''
@@ -55,11 +55,11 @@ def __insert_data(conn: sqlite3.Connection, values: list):
 
 
 def update_sqlite_data():
-    data = __download_aqi_data()
+    data = download_aqi_data()
     conn = sqlite3.connect("空氣品質監測站.db")
-    __create_table(conn)
+    create_table(conn)
     for item in data['records']:
-        __insert_data(conn,values=[item['siteid'],item['sitename'], item['siteengname'], item['areaname'], item['county'], item['township'], item['siteaddress'], item['twd97lon'], item['twd97lat'], item['sitetype']])
+        insert_data(conn,values=[item['siteid'],item['sitename'], item['siteengname'], item['areaname'], item['county'], item['township'], item['siteaddress'], item['twd97lon'], item['twd97lat'], item['sitetype']])
 
         print(item)
 
