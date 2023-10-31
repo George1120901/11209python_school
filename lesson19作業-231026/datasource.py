@@ -1,3 +1,4 @@
+import threading
 import requests
 import sqlite3
 from datetime import datetime
@@ -20,7 +21,7 @@ def download_aqi_data() -> list:
 def create_table(conn: sqlite3.Connection):
     
     sql= '''
-		CREATE TABLE IF NOT EXISTS 空氣品質監測站(
+		CREATE TABLE IF NOT EXISTS "空氣品質監測站"(
             "id" INTEGER,
             "測站編號" INTEGER,	
 			"測站名稱" TEXT NOT NULL,
@@ -58,7 +59,7 @@ def update_sqlite_data():
     data = download_aqi_data()
     conn = sqlite3.connect("空氣品質監測站.db")
     create_table(conn)
-    for item in data['records']:
+    for item in data:
         insert_data(conn,values=[item['siteid'],item['sitename'], item['siteengname'], item['areaname'], item['county'], item['township'], item['siteaddress'], item['twd97lon'], item['twd97lat'], item['sitetype']])
 
         print(item)
@@ -66,3 +67,5 @@ def update_sqlite_data():
         print("更新完成")
 
     conn.close()
+
+

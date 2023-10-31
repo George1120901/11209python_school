@@ -26,7 +26,7 @@ def __create_table(conn:sqlite3.Connection):
     cursor = conn.cursor()
     cursor.execute(
         '''
-		CREATE TABLE IF NOT EXISTS 空氣品質AQI(
+		CREATE TABLE IF NOT EXISTS "空氣品質監測站"(
             "id" INTEGER,
             "測站編號" INTEGER,	
 			"測站名稱" TEXT NOT NULL,
@@ -51,7 +51,7 @@ def __insert_data(conn:sqlite3.Connection,values:list)->None:
     cursor = conn.cursor()
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M')
     sql = '''
-		REPLACE INTO 空氣品質AQI(測站編號,測站名稱,測站英文名稱,空品區,城市,鄉鎮,測站地址,經度,緯度,測站類型,更新時間)
+		REPLACE INTO "空氣品質監測站"(測站編號,測站名稱,測站英文名稱,空品區,城市,鄉鎮,測站地址,經度,緯度,測站類型,更新時間)
 		VALUES(?,?,?,?,?,?,?,?,?,?,?)
 	'''
     values.append(current_time) 
@@ -60,7 +60,7 @@ def __insert_data(conn:sqlite3.Connection,values:list)->None:
 
 def update_sqlite_data()->None:
     data = __download_aqi_data()
-    conn = sqlite3.connect("空氣品質AQI.db")
+    conn = sqlite3.connect("空氣品質監測站.db")
     __create_table(conn)
     for item in data:
         # print(item)
