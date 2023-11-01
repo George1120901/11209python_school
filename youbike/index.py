@@ -13,27 +13,20 @@ class Window(tk.Tk):
             messagebox.showerror("錯誤",'網路不正常\n將關閉應用程式\n請稍後再試')
             self.destroy()
 
-     
-t = None
-def main():
-    def on_closing():
-        print("window關閉")
-        t.cancel()
-        window.destroy()
+        print(datasource.lastest_datetime_data())
 
-    
-    def update_data()->None:
+
+def main():    
+    def update_data(w:Window)->None:
         datasource.updata_sqlite_data()
-        global t
-        t = Timer(20,update_data)
-        t.start()  
+        window.after(3*60*1000,update_data,w)
+          
 
     window = Window()
     window.title('台北市youbike2.0')
     window.geometry('600x300')
     window.resizable(width=False,height=False)
-    update_data()
-    window.protocol("WM_DELETE_WINDOW",on_closing)      
+    update_data(window)          
     window.mainloop()
 
 if __name__ == '__main__':
