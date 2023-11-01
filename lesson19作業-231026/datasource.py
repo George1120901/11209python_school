@@ -14,7 +14,7 @@ def download_aqi_data() -> list:
     response.raise_for_status()
     print('下載成功')
     data = response.json()
-
+    #print(data)
 
 
 # create sql able---------------------------------------
@@ -61,16 +61,19 @@ def insert_data(conn: sqlite3.Connection, values: list):
 
 def update_sqlite_data():
     data = download_aqi_data()
+    print(data)
     print("判斷4 ok")
     conn = sqlite3.connect("空氣品質監測站.db")
     create_table(conn)
     print("判斷5 ok")
+
     for item in data:
+        
         insert_data(conn,values=[item['siteid'],item['sitename'], item['siteengname'], item['areaname'], item['county'], item['township'], item['siteaddress'], item['twd97lon'], item['twd97lat'], item['sitetype']])
         print(item)
 
         print("更新完成")
     conn.close()
-    print("判斷6 ok")
+    
 
 
