@@ -50,4 +50,4 @@
 [作業-資料search](./youbike/2023_11_1作業/index.py)
 
 ## 2023_11_02_作業
-[作業-Map](./00_homeWork/112_11_02/homeMap.ipynb)
+[作業-HomeMap](./00_homeWork/112_11_02/homeMap.ipynb)
