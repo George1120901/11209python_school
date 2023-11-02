@@ -42,3 +42,12 @@
 
 ## 2023_10_18_作業
 [作業-DB Browser(台積電股價)](./lesson19/lesson19_2作業.ipynb)
+
+## 2023_10_26_作業
+[作業-SQLite資料匯入](./lesson19_SQL-231026/index.py)
+
+## 2023_11_01_作業
+[作業-資料search](./youbike/2023_11_1作業/index.py)
+
+## 2023_11_02_作業
+[作業-Map](./00_homeWork/112_11_02/homeMap.ipynb)
