@@ -38,9 +38,8 @@ def create_table(conn)->None:
 def insert_data(conn,values:list[any])->None:
     cursor = conn.cursor()
     sql = '''
-    INSERT INTO 台北市youbike (站點名稱, 行政區, 更新時間, 地址, 總車輛數, 可借, 可還) 
-    VALUES (%s,%s,%s,%s,%s,%s,%s)
-    ON CONFLICT (站點名稱,更新時間) DO NOTHING
+    INSERT INTO 台北市youbike(站點名稱,行政區,更新時間,地址,總車輛數,可借,可還)
+        VALUES(%s,%s,%s,%s,%s,%s,%s)
     '''
     cursor.execute(sql,values)    
     conn.commit()
