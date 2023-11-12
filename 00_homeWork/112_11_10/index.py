@@ -1,7 +1,7 @@
 import requests
 import psycopg2
 import threading
-import key
+import password as pw
 
 
 # 1.---------------download AQ2.5 data.json--------------
