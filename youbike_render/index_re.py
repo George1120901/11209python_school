@@ -57,10 +57,10 @@ n=0
 def update_render_data() -> None:
     data = download_data()
     conn = psycopg2.connect(database=pw.DATABASE,
-                                user=pw.USER, 
-                                password=pw.PASSWORD,
-                                host=pw.HOST, 
-                                port="5432")
+                            user=pw.USER, 
+                            password=pw.PASSWORD,
+                            host=pw.HOST, 
+                            port="5432")
     create_table(conn)
 
 
