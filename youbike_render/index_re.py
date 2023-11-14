@@ -68,10 +68,12 @@ def update_render_data() -> None:
         insert_data(conn,values=[item['site'],item['county'],item['pm25'],item['datacreationdate']])
     
     global n
-    if n<10:
+    if n<5:
+       n += 1
+       print(f'資料第{n}次更新,還有{5-n}次更新')
        timer = threading.Timer(60*60, update_render_data)
        timer.start()
-       n+=1
+       
     else:
         print(f'資料{n}次更新完畢')    
         conn.close()
