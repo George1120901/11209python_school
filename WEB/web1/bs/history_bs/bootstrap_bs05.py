@@ -1,5 +1,4 @@
 from flask import Blueprint,render_template
-from . import datasource
 
 bp = Blueprint('bs', __name__, url_prefix='/bs')
 

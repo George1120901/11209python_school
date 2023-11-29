@@ -1,8 +1,8 @@
 import requests
 import psycopg2
-from . import password as pw
+import password as pw
 
-
+# threadRun = True #次執行緒是否執行
 
 def __download_youbike_data()->list[dict]:
     '''
