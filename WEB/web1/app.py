@@ -1,12 +1,12 @@
 from flask import Flask,url_for,render_template
 import pandas as pd
 from auth import auth
-from bs import bootstrap
+from web1.bs import bootstrap_bs04
 
 
 app = Flask(__name__)
 app.register_blueprint(auth.bp)
-app.register_blueprint(bootstrap.bp)
+app.register_blueprint(bootstrap_bs04.bp)
 
 @app.route('/')
 def index():
