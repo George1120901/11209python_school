@@ -1,4 +1,4 @@
-{% extends "base_navigation.html" %}
+{% extends "base.html" %}
 
 {% block title %}
     Flask_Dash
@@ -8,7 +8,7 @@
     {{ super() }}
     <style>
         
-        @media (min-width: 576px) { }
+        @media (min-width: 576px) {}
 
     
         @media (min-width: 768px) {}
@@ -29,7 +29,8 @@
     <div class="container-lg">
         <h1>Flask_Dash</h1>
         {{ super() }}
-    </div>    
+    </div>
+    
 {% endblock %}
 
 
