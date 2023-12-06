@@ -51,3 +51,9 @@
 
 ## 2023_11_02_作業
 [作業-HomeMap](./00_homeWork/112_11_02/homeMap.ipynb)
+
+## 2023_11_08_作業
+[作業-youBike_render資料庫](./youbike_render/1108.ipynb)
+
+## 2023_11_10_作業
+[作業-TW_PM2.5](./00_homeWork/112_11_10/index.py)
