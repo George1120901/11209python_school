@@ -59,4 +59,5 @@
 [作業-TW_PM2.5](./00_homeWork/112_11_10/index.py)
 
 ## 2023_11_27_專題_信用卡消費樣態
-[專題_信用卡消費樣態](../..__creditcard__/blob/main/main.py)
+[專題_信用卡消費樣態](./..__creditcard__/blob/main/main.py)
+#https://github.com/George1120901/..__creditcard__/blob/main/main.py
