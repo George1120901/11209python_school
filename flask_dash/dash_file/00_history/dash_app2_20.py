@@ -87,8 +87,7 @@ dash2.layout = html.Div(
 def clickBtn(n_clicks:None | int,inputValue:str):
     if n_clicks is not None:
         #一定先檢查有沒有按button
-        searchData:list[tuple] = datasource.search_sitename(inputValue)
-        print(searchData)
+        print(inputValue)
 
 @callback(
       Output('showMessage','children'),
