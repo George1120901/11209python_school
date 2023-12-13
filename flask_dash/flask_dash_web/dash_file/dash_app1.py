@@ -4,7 +4,7 @@ import plotly.express as px
 
 dash1 = Dash(requests_pathname_prefix="/dash/app1/",external_stylesheets=[dbc.themes.BOOTSTRAP])
 
-dash1.title = "#台灣和日本平均壽命#"
+dash1.title = "台灣和日本平均壽命"
 
 dash1.layout = html.Div([
     html.H4('Life expentancy progression of countries per continents'),
