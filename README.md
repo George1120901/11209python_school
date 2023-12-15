@@ -27,7 +27,7 @@
 [作業-擲骰子](./lesson10_4作業.ipynb)
 
 ## 2023_09_28_遊戲
-[作業-擲骰子比賽](./lesson12_3作業.ipynb)
+[作業-擲骰子比賽](./lesson12_3_作業Debug.ipynb)
 
 ## 2023_10_03_遊戲
 [作業-StaticWeb](https://staticweb-iwzp.onrender.com)
