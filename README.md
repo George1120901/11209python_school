@@ -31,6 +31,7 @@
 
 ## 2023_10_03_遊戲
 [作業-StaticWeb](https://staticweb-iwzp.onrender.com)
+[作業-html](./00_homeWork/2023_10_03_StaticWeb/homeMap.ipynb)
 
 ## 2023_10_05_作業
 [作業-檔案存取](./lesson14作業.ipynb)
@@ -48,13 +49,13 @@
 [作業-資料search](./youbike/2023_11_1作業/index.py)
 
 ## 2023_11_02_作業
-[作業-HomeMap](./00_homeWork/112_11_02/homeMap.ipynb)
+[作業-HomeMap](./00_homeWork/2023_11_02/homeMap.ipynb)
 
 ## 2023_11_08_作業
 [作業-youBike_render資料庫](./youbike_render/1108.ipynb)
 
 ## 2023_11_10_作業
-[作業-TW_PM2.5](./00_homeWork/112_11_10/index.py)
+[作業-TW_PM2.5](./00_homeWork/2023_11_10/index.py)
 
 ## 2023_11_27_專題_信用卡消費樣態
 [專題_信用卡消費樣態](./creditCard/blob/main/main.py)
