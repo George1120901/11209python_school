@@ -8,7 +8,7 @@ import secrets
 
 app = Flask(__name__)
 app.register_blueprint(blueprint_auth)
-app.config['SECRET_KEY'] = secrets.token_h ex(16)
+app.config['SECRET_KEY'] = secrets.token_hex(16)
 
 application = DispatcherMiddleware(
     app,
