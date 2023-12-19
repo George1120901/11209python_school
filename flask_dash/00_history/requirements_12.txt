@@ -5,4 +5,3 @@ gunicorn
 pandas
 dash-bootstrap-components
 psycopg2
-Flask-WTF
