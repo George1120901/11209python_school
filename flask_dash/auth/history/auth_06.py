@@ -25,8 +25,3 @@ def login():
 @blueprint_auth.route('/success')
 def success():
     return render_template('/auth/success.html')
-
-
-@blueprint_auth.route('/registor')
-def register():
-    return render_template('/auth/registor.html')
