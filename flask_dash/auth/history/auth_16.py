@@ -2,10 +2,6 @@ from flask import Blueprint,render_template,request,redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField,SelectField,EmailField,BooleanField,DateField,TextAreaField,PasswordField
 from wtforms.validators import DataRequired,Length,Regexp,Optional,EqualTo
-from werkzeug.security import generate_password_hash, check_password_hash
-import secrets
-from .datasource import insert_data
-import datetime
 
 blueprint_auth = Blueprint('auth', __name__,url_prefix='/auth')
 
@@ -69,12 +65,8 @@ def register():
             isGetEmail = form.isGetEmail.data
             print("接受促銷","接受" if isGetEmail else "不接受")
 
-            uBirthday:datetime.date | None= form.uBirthday.data
-            if uBirthday is not None:
-                uBirthday_str:str = uBirthday.strftime("%Y-%m-%d")
-                print("出生",uBirthday)
-            else:
-                uBirthday_str:str = "1900-01-01"
+            uBirthday = form.uBirthday.data
+            print("出生",uBirthday)
 
             uAboutMe = form.uAboutMe.data
             print("自我介紹",uAboutMe)
@@ -82,14 +74,7 @@ def register():
             uPass = form.uPass.data
             print("密碼",uPass)
 
-            hash_password:str = generate_password_hash(uPass,method='pbkdf2:sha256',salt_length=8)
-            #print(hash_password)
-            #print("密碼正確" if check_password_hash(hash_password,uPass) else "密碼錯誤")
-            conn_token = secrets.token_hex(16)
-
-            insert_data([uName, uGender, uPhone, uEmail, isGetEmail, uBirthday_str, uAboutMe, hash_password, conn_token])
-
-            return redirect(f'/auth/login/{uEmail}')
+            return redirect('/auth/login')
             
         else:
             print("驗證失敗")
