@@ -6,13 +6,11 @@ from wtforms.validators import DataRequired,Length,Regexp,Optional,EqualTo
 blueprint_auth = Blueprint('auth', __name__,url_prefix='/auth')
 
 class MyForm(FlaskForm):
-    email = StringField('郵件', validators=[DataRequired()])
-    uPass = PasswordField('密碼',validators=[DataRequired(),Length(min=4,max=20)])
+    name = StringField('姓名', validators=[DataRequired()])
 
 @blueprint_auth.route('/',methods=['GET', 'POST'])
 @blueprint_auth.route('/login',methods=['GET', 'POST'])
-@blueprint_auth.route('/login/<email>')
-def login(email:str | None = None):
+def login():
     form = MyForm()
     if request.method == "POST" and form.validate_on_submit():     
         if request.form['name'] == "12345" and request.form['password'] == "12345":
@@ -20,9 +18,6 @@ def login(email:str | None = None):
             return redirect("/auth/success")
         else:
             print("密碼錯誤")
-    else:
-        if email is not None:
-            form.email.data = email
     
 
     return render_template("/auth/login.html",form=form)
@@ -50,7 +45,7 @@ def register():
     if request.method == "POST":
         if form.validate_on_submit():
             uName = form.uName.data
-            #form.uName.data = ''
+            form.uName.data = ''
             print("姓名",uName)
 
             uGender = form.uGender.data
@@ -73,8 +68,6 @@ def register():
 
             uPass = form.uPass.data
             print("密碼",uPass)
-
-            return redirect('/auth/login')
             
         else:
             print("驗證失敗")
