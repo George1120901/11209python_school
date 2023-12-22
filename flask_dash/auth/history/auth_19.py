@@ -1,10 +1,10 @@
-from flask import Blueprint,render_template,request,redirect,session
+from flask import Blueprint,render_template,request,redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField,SelectField,EmailField,BooleanField,DateField,TextAreaField,PasswordField
 from wtforms.validators import DataRequired,Length,Regexp,Optional,EqualTo
 from werkzeug.security import generate_password_hash, check_password_hash
 import secrets
-from .datasource import insert_data,InvolidEmailException,validateUser
+from .datasource import insert_data
 import datetime
 
 blueprint_auth = Blueprint('auth', __name__,url_prefix='/auth')
@@ -18,16 +18,12 @@ class MyForm(FlaskForm):
 @blueprint_auth.route('/login/<email>')
 def login(email:str | None = None):
     form = MyForm()
-    if request.method == "POST" and form.validate_on_submit():
-        email = form.email.data
-        password = form.uPass.data
-        is_ok, name= validateUser(email,password)
-        if is_ok:
-            session['username'] = name
-            return redirect("/")
+    if request.method == "POST" and form.validate_on_submit():     
+        if request.form['name'] == "12345" and request.form['password'] == "12345":
+            print("密碼正確")
+            return redirect("/auth/success")
         else:
-            form.email.errors.append('帳號或密碼錯誤')
-            form.email.data = ""
+            print("密碼錯誤")
     else:
         if email is not None:
             form.email.data = email
@@ -90,22 +86,12 @@ def register():
             #print(hash_password)
             #print("密碼正確" if check_password_hash(hash_password,uPass) else "密碼錯誤")
             conn_token = secrets.token_hex(16)
-            try:
-                insert_data([uName, uGender, uPhone, uEmail, isGetEmail, uBirthday_str, uAboutMe, hash_password, conn_token])
-            except InvolidEmailException:
-                form.uEmail.errors.append("有相同的email")
-            except RuntimeError:
-                form.uEmail.errors.append("不知名的錯誤")
-            else:
-                return redirect(f'/auth/login/{uEmail}')
 
+            insert_data([uName, uGender, uPhone, uEmail, isGetEmail, uBirthday_str, uAboutMe, hash_password, conn_token])
+
+            return redirect(f'/auth/login/{uEmail}')
             
         else:
             print("驗證失敗")
 
     return render_template('/auth/registor.html',form=form)
-
-@blueprint_auth.route('/logout')
-def logout():
-    session.pop('username',default=None)
-    return redirect('/')
