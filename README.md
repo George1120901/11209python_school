@@ -1,6 +1,9 @@
 # 11209python_school
 ## 11209台北市職能發展學院_Python應用實戰班
 ### 課程期間:2023.09.01~2023.12.26 五日/週(640Hr)
+上課網址
+https://meet.google.com/wvu-enjr-oor
+
 ## Python語言
 - 輸入和輸出
 - 資料類型
