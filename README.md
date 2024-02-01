@@ -4,7 +4,7 @@
 上課網址
 https://meet.google.com/wvu-enjr-oor
 
-## Python語言
+## Python語言基本
 - 輸入和輸出
 - 資料類型
 - 數學計算
